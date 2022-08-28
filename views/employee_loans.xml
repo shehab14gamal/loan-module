@@ -1,0 +1,51 @@
+<odoo>
+        <data>
+                 <record id="employee_loans_form_view" model="ir.ui.view">
+            <field name="name">employee loans form view</field>
+            <field name="model">employee.loans</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <header>
+                        <button string="Confirm"  type="object" name="change_state" attrs ="{'invisible':[('state','!=','draft')]}"/>
+                         <button string="End"  type="object" name="change_state" attrs ="{'invisible':[('state','!=','confirmed')]}"/>
+                         <button string="Cancel" type="object" name="cancel_state" attrs ="{'invisible':[('state','=','canceled')]}"/>
+                          <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,ended,canceled"/>
+                    </header>
+                        <group>
+
+                             <field name="employee_id" />
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="amount"/>
+                            <field name="last_change_status_by" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+             </record>
+             <record id="employee_loans_tree_view" model="ir.ui.view">
+            <field name="name">employee loans tree view</field>
+            <field name="model">employee.loans</field>
+            <field name="arch" type="xml">
+                <tree>
+                             <field name="employee_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="amount"/>
+                </tree>
+            </field>
+             </record>
+             <record id="employee_loans_action" model="ir.actions.act_window">
+            <field name="name">Employee Loans</field>
+            <field name="res_model">employee.loans</field>
+        </record>
+
+         <menuitem id="loans_menu_item" name="loans"/>
+        <menuitem id="employee_loans_menu"
+                  name="Employee Loans"
+                  parent="loans.loans_menu_item"
+                  action="employee_loans_action"
+        />
+        </data>
+</odoo>

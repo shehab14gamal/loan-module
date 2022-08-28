@@ -1,0 +1,68 @@
+<odoo>
+<template id="report_employee_loans_id">
+       <t t-call="web.html_container">
+           <t t-foreach="docs" t-as="o">
+               <t t-call="web.external_layout">
+                   <div class="page">
+                       <div class="oe_structure"/>
+                    <div>
+                        <h2 class="text-center mb32">
+                            <strong>Employee Loan</strong>
+                        </h2>
+                    </div>
+                    <br/>
+                                   <table style="width:100%;margin:0px auto;background:white;border:1px solid #e1e1e1;"
+                           class="table table-condensed">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>Employee :</strong>
+                                </td>
+                                <td>
+
+                                    <h5 style="color:rgb(1,126,132);font-weight:bold" t-field="o.employee_id"/>
+
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Start Date :</strong>
+                                </td>
+                                <td>
+                                    <p style="color:rgb(1,126,132)"  t-field="o.start_date"/>
+                                </td>
+                                <td>
+                                    <strong>End Date :</strong>
+                                </td>
+                                <td>
+                                    <p style="color:rgb(1,126,132)"  t-field="o.end_date"/>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                        <td>
+                                    <strong>Amount :</strong>
+                                </td>
+                                <td>
+                                    <p style="color:rgb(1,126,132)"  t-field="o.amount"/>
+                                </td>
+
+                                    <td>
+                                    <strong>State :</strong>
+                                </td>
+                                <td>
+
+                                    <h5 style="color:rgb(1,126,132);" t-field="o.state"/>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                   </div>
+               </t>
+           </t>
+       </t>
+</template>
+</odoo>
+

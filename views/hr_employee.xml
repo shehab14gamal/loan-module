@@ -1,0 +1,22 @@
+<odoo>
+
+    <data>
+         <record id="hr_employee_inherit_form" model="ir.ui.view">
+            <field name="name">hr_employee_inherit_form</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+              <field name="coach_id" position="after">
+                  <field name="allowed_loan_limit"/>
+                  <field name="total_loan_amount"/>
+              </field>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Loans">
+                        <field name="loans"/>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
